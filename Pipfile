@@ -4,17 +4,12 @@ url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 verify_ssl = true
 
 [dev-packages]
-fabric = "*"
-coverage = "*"
 
 [packages]
-django = "~=2.2"
+django = "==2.2.3"
 markdown = "*"
-gunicorn = "*"
 faker = "*"
 django-pure-pagination = "*"
-elasticsearch = ">=2,<3"
-django-haystack = "*"
 
 [requires]
-python_version = "3"
+python_version = "3.6"
