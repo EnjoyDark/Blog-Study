@@ -122,10 +122,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 # STATICFILES_DIRS和STATIC_ROOT 不能同时设置，STATICFILES_DIRS用于测试环境 STATIC_ROOT生产环境部署
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, 'static'),
+#]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # 分页设置
 PAGINATION_SETTINGS = {
