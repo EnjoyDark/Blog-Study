@@ -45,9 +45,9 @@ class Post(models.Model):
     title = models.CharField('标题', max_length=70)
     body = models.TextField('正文')
     created_time = models.DateTimeField('创建时间', default=timezone.now())
-    modified_time = models.DateTimeField('修改时间', blank=True)
-    # 一个使用auto_now_add（第一次创建模型类时添加，以后不再改动）
-    # 另一个使用auto_now（添加或者最后一次修改该模型时的时间）
+    modified_time = models.DateTimeField('修改时间', blank=True, null=True)  # blank=True 允许验证字段为空 null=True 允许数据库字段是NULL
+    # 一个使用auto_now_add（第一次创建模型类时添加，以后不再改动, 也不能添加到后台管理更改时间）
+    # 另一个使用auto_now（添加或者最后一次修改该模型时的时间，也不能添加到后台管理更改时间）
     # created_time = models.DateTimeField('创建时间', auto_now_add=True)
     # modified_time = models.DateTimeField('修改时间', auto_now=True)
     excerpt = models.CharField('摘要', max_length=200, blank=True)
