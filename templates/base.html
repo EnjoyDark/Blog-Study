@@ -50,7 +50,7 @@
         }
     </style>
     <style type="text/css">
-        ul, li {
+        .toc ul, .toc li {
             padding: 0;
             padding-left: 9px;
             margin: 0;
@@ -79,7 +79,8 @@
             <div class="col-md-8 col-sm-7 col-xs-4">
                 <nav class="main-nav" role="navigation">
                     <div class="navbar-header">
-                        <button type="button" id="trigger-overlay" class="navbar-toggle">
+                        <button type="button" id="trigger-overlay" class="navbar-toggle" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1">
                             <span class="ion-navicon"></span>
                         </button>
                     </div>
@@ -88,7 +89,7 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="cl-effect-11"><a href="/" data-hover="首页">首页</a></li>
                             {#                            <li class="cl-effect-11"><a href="{% static 'blog/full-width.html' %}" data-hover="博客">博客</a></li>#}
-                            <li class="cl-effect-11"><a href="{% static 'blog/about.html' %}" data-hover="关于">关于</a>
+                            <li class="cl-effect-11"><a href="{% url 'about' %}" data-hover="关于">关于</a>
                             </li>
                             {#                            <li class="cl-effect-11"><a href="{% static 'blog/contact.html' %}" data-hover="联系">联系</a></li>#}
                         </ul>
@@ -131,9 +132,9 @@
 
                 <!--{% show_recent_posts 10 %} 显示最近10篇文章-->
                 {% show_recent_posts %}
-                {% show_archives %}
                 {% show_categories %}
                 {% show_tags %}
+                {% show_archives %}
 
                 <div class="rss">
                     <a href="{% url 'rss' %}"><span class="ion-social-rss-outline"></span> RSS 订阅</a>
