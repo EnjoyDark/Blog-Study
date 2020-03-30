@@ -44,7 +44,7 @@ class Post(models.Model):
     """
     title = models.CharField('标题', max_length=70)
     body = models.TextField('正文')
-    created_time = models.DateTimeField('创建时间', default=timezone.now())
+    created_time = models.DateTimeField('创建时间')
     modified_time = models.DateTimeField('修改时间', blank=True, null=True)  # blank=True 允许验证字段为空 null=True 允许数据库字段是NULL
     # 一个使用auto_now_add（第一次创建模型类时添加，以后不再改动, 也不能添加到后台管理更改时间）
     # 另一个使用auto_now（添加或者最后一次修改该模型时的时间，也不能添加到后台管理更改时间）
@@ -57,7 +57,7 @@ class Post(models.Model):
     views = models.PositiveIntegerField(default=0, editable=False)
 
     def save(self, *args, **kwargs):
-        #     self.modified_time = timezone.now()
+        self.modified_time = timezone.now()
         # 首先实例化一个 Markdown 类，用于渲染 body 的文本。
         # 由于摘要并不需要生成文章目录，所以去掉了目录拓展。
         md = markdown.Markdown(extensions=[
